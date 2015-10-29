@@ -1,0 +1,5 @@
+*.pyc
+.build
+auto-rules.mk
+macros.mk
+output/

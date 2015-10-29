@@ -1,0 +1,27 @@
+maintainer: Pavel Raiskup <praiskup@redhat.com>
+
+expose: [4444]
+
+parts:
+  pkginstall:
+    data:
+      - type: "pkg"
+        action: "install"
+        packages: [ firefox, xorg-x11-server-Xvfb, java-1.8.0-openjdk-headless, tmux ]
+
+  addfiles:
+    data:
+      - type: files
+        files: [ root ]
+        dest: /
+
+  commands:
+    data:
+      - type: shell
+        action: !eval "macros['container_build']"
+      - type: shell
+        action: !eval "macros['install_selenium']"
+
+  footer:
+    entry:
+    - !eval 'macros["container_entrypoint"]'

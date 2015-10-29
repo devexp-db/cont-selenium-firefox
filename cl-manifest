@@ -1,0 +1,5 @@
+DG      /Dockerfile spec=docker.yml             gtpl=docker.tpl outputroot
+DG      $(bindir)/cont-selenium-cmd             tpl=container-cmd.sh.tpl chmod=755
+DG      $(install_selenium)                     tpl=install-selenium.sh.tpl chmod=755
+DG      $(contdocdir)/selenium-firefox.txt      tpl=cont-docs/selenium-firefox.txt.tpl
+CP      $(examplesdir)/perl.txt                 cont-docs/selenium-firefox/examples/perl.txt
